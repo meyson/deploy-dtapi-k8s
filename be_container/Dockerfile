@@ -6,4 +6,4 @@ RUN docker-php-ext-install pdo_mysql \
   && a2enmod rewrite 
 
 # copy source files
-COPY ./build/app/ /var/www/html/
+COPY --chown="www-data:root" ./build/app/be/ /var/www/html/
