@@ -2,14 +2,9 @@
 
 source .env
 
-./stop.sh
+mkdir -p "$MYSQL_DATA_DIR"
 
-download_dump() {
-  local users="https://dtapi.if.ua/~yurkovskiy/dtapi_full.sql"
-  local sessions="https://dtapi.if.ua/~yurkovskiy/IF-108/sessions.sql"
-  wget -N $users -P ./db_container
-  wget -N $sessions -P ./db_container
-}
+./stop.sh
 
 dockerize() {
   docker network create "$DOCKER_NETWORK"
@@ -21,6 +16,7 @@ dockerize() {
     -e MYSQL_PASSWORD="$MYSQL_PASSWORD" \
     -e MYSQL_ROOT_PASSWORD="$MYSQL_PASSWORD" \
     -e MYSQL_DATABASE="$MYSQL_DATABASE" \
+    -v "$MYSQL_DATA_DIR:/var/lib/mysql" \
     -v "$BASEDIR/db_container:/docker-entrypoint-initdb.d:ro" \
     -d mysql:5.7
 
@@ -43,6 +39,13 @@ dockerize() {
     --network "$DOCKER_NETWORK" \
     -v "$BASEDIR/lb_container/nginx.conf:/etc/nginx/conf.d/default.conf:ro" \
     -d nginx:1.19.2-alpine
+}
+
+download_dump() {
+  local users="https://dtapi.if.ua/~yurkovskiy/dtapi_full.sql"
+  local sessions="https://dtapi.if.ua/~yurkovskiy/IF-108/sessions.sql"
+  wget -N $users -P ./db_container
+  wget -N $sessions -P ./db_container
 }
 
 download_dump

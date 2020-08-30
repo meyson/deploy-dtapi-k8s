@@ -2,6 +2,8 @@
 
 source .env
 
+rm -rf "$MYSQL_DATA_DIR"
+
 docker rm -f "$DOCKER_BE"
 docker rm -f "$DOCKER_FE"
 docker rm -f "$DOCKER_LB"
