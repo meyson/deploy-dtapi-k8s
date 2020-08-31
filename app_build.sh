@@ -11,12 +11,8 @@ clone_repository() {
 }
 
 edit_be_files() {
-  local app_php="$APP_BE/application/bootstrap.php"
   local db_php="$APP_BE/application/config/database.php"
-  sed -i -e "s|RewriteBase /|RewriteBase /api|g" "$APP_BE/.htaccess"
-  sed -i -e "s|'base_url'   => '/'|'base_url'   => '/api/'|g" "$app_php"
   sed -i -e "s|'type'       => 'PDO_MySQL'|'type'       => 'PDO'|g" "$db_php"
-  sed -i -e "s|localhost|$DOCKER_MYSQL|g" "$db_php"
 }
 
 # build Backend

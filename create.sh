@@ -4,7 +4,7 @@ source .env
 
 mkdir -p "$MYSQL_DATA_DIR"
 
-./stop.sh
+./remove.sh
 
 dockerize() {
   docker network create "$DOCKER_NETWORK"
@@ -25,6 +25,7 @@ dockerize() {
   docker run --name "$DOCKER_BE" \
     -p 8001:80 \
     --network "$DOCKER_NETWORK" \
+    -e MYSQL_HOST="$DOCKER_MYSQL" \
     -d "$DOCKER_BE_IMAGE"
 
   docker run --name "$DOCKER_FE" \
