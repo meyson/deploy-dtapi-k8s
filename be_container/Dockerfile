@@ -11,4 +11,6 @@ RUN docker-php-ext-install pdo_mysql \
 COPY --chown="www-data:www-data" ./build/app/be/ /var/www/html/
 
 COPY ./be_container/docker-entrypoint.sh /usr/local/bin/
+
 ENTRYPOINT ["bash", "docker-entrypoint.sh"]
+CMD ["apache2-foreground"]
