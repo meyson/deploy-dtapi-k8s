@@ -23,7 +23,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 1Gi
 ---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
@@ -45,7 +45,7 @@ spec:
         tier: mysql
     spec:
       containers:
-      - image: mysql:5.7
+      - image: eu.gcr.io/test1-286117/dtapi-mysql:1.0
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
@@ -75,10 +75,6 @@ spec:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
           subPath: data
-        # TODO
-        - name: mysql-persistent-storage
-          mountPath: docker-entrypoint-initdb.d
-          subPath: init_scripts
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
