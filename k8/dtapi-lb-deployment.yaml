@@ -11,6 +11,7 @@ spec:
     app: dtapi
     tier: nginx-lb
   type: LoadBalancer
+  loadBalancerIP: 35.228.27.37
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -57,15 +58,15 @@ data:
     upstream be {
       server dtapi-be;
     }
-    #upstream fe {
-    #  server dtapi-fe;
-    #}
+    upstream fe {
+      server dtapi-fe;
+    }
     server {
       listen 80;
       location ^~ /api {
         proxy_pass http://be/api;
       }
-     # location ~ ^/.*$ {
-     #   proxy_pass http://fe;
-     # }
+      location ~ ^/.*$ {
+        proxy_pass http://fe;
+      }
     }

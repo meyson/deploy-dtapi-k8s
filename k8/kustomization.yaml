@@ -13,6 +13,7 @@ secretGenerator:
     - database=dtapi2
 
 resources:
-  - dtapi-mysql-deployment.yaml
+  - dtapi-db-deployment.yaml
   - dtapi-be-deployment.yaml
+  - dtapi-fe-deployment.yaml
   - dtapi-lb-deployment.yaml
