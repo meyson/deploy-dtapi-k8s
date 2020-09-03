@@ -10,8 +10,7 @@ spec:
   selector:
     app: dtapi
     tier: backend
-  # TODO Change type
-  type: LoadBalancer
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
