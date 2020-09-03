@@ -37,6 +37,21 @@ spec:
         env:
         - name: MYSQL_HOST
           value: dtapi-mysql
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-user
+              key: user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: mysql-db
+              key: database
         ports:
         - containerPort: 80
           name: dtapi

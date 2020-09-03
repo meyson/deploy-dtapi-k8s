@@ -1,7 +1,6 @@
 .idea
 build
 be_container
-db_container
 fe_container
 lb_container
 *.log
