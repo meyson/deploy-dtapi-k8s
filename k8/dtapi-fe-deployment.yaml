@@ -6,11 +6,13 @@ metadata:
     app: dtapi
 spec:
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80
   selector:
     app: dtapi
     tier: frontend
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -24,7 +26,7 @@ spec:
       app: dtapi
       tier: frontend
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -36,7 +38,7 @@ spec:
           name: dtapi
           env:
             - name: API_ENDPOINT
-              value: "http:\\/\\/ifdevops.ga\\/api\\/"
+              value: "http:\\/\\/34.120.59.255\\/api\\/"
           ports:
             - containerPort: 80
               name: dtapi

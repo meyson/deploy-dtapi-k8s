@@ -1,0 +1,7 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  # Reserved a static external IP address named dtapi
+  name: dtapi
+spec:
+  location: europe-north1

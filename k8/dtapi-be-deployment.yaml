@@ -6,11 +6,13 @@ metadata:
     app: dtapi
 spec:
   ports:
-    - port: 80
+  - protocol: TCP
+    port: 80
+    targetPort: 80
   selector:
     app: dtapi
     tier: backend
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -24,7 +26,7 @@ spec:
       app: dtapi
       tier: backend
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:

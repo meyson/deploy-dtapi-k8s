@@ -3,4 +3,5 @@ build
 be_container
 fe_container
 lb_container
+k8/kustomization.yaml
 *.log
