@@ -48,26 +48,26 @@ spec:
       - image: eu.gcr.io/test1-286117/dtapi-mysql:1.0
         name: mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-root-pass
-              key: password
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: mysql-user
+              name: mysql
               key: user
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-pass
-              key: password
+              name: mysql
+              key: user_password
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: mysql-db
+              name: mysql
               key: database
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: root_password
         ports:
         - containerPort: 3306
           name: mysql

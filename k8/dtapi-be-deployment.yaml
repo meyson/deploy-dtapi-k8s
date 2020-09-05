@@ -38,21 +38,22 @@ spec:
         name: dtapi
         env:
         - name: MYSQL_HOST
+          # todo google
           value: dtapi-mysql
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: mysql-user
+              name: mysql
               key: user
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-pass
-              key: password
+              name: mysql
+              key: user_password
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: mysql-db
+              name: mysql
               key: database
         ports:
         - containerPort: 80

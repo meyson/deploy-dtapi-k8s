@@ -38,7 +38,7 @@ spec:
           name: dtapi
           env:
             - name: API_ENDPOINT
-              value: "http:\\/\\/34.120.59.255\\/api\\/"
+              value: "http:\\/\\/ifdevops.ga\\/api\\/"
           ports:
             - containerPort: 80
               name: dtapi

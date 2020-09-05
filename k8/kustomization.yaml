@@ -1,16 +1,10 @@
 secretGenerator:
-- name: mysql-root-pass
-  literals:
-    - password=root
-- name: mysql-user
-  literals:
-    - user=dtapi
-- name: mysql-pass
-  literals:
-    - password=dtapi
-- name: mysql-db
+- name: mysql
   literals:
     - database=dtapi2
+    - user=dtapi
+    - user_password=dtapi
+    - root_password=rootdtapi
 
 resources:
   - dtapi-db-deployment.yaml
