@@ -38,7 +38,6 @@ spec:
         name: dtapi
         env:
         - name: MYSQL_HOST
-          # todo google
           value: dtapi-mysql
         - name: MYSQL_USER
           valueFrom:
@@ -58,3 +57,13 @@ spec:
         ports:
         - containerPort: 80
           name: dtapi
+        readinessProbe:
+          httpGet:
+            path: /api/
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /api/
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
