@@ -38,7 +38,10 @@ spec:
           name: dtapi
           env:
             - name: API_ENDPOINT
-              value: "http:\\/\\/ifdevops.ga\\/api\\/"
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend
+                  key: api-endpoint
           ports:
             - containerPort: 80
               name: dtapi

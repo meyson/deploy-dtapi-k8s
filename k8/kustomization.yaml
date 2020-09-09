@@ -1,8 +1,13 @@
 secretGenerator:
 - name: mysql
   env: mysql.txt
+
+configMapGenerator:
+  - name: frontend
+    literals:
+      - api-endpoint="http:\/\/ifdevops.ga\/api\/"
 resources:
-  - dtapi-db-deployment.yaml
-  - dtapi-be-deployment.yaml
-  - dtapi-fe-deployment.yaml
-  - dtapi-ingress.yaml
+  - db-deployment.yaml
+  - be-deployment.yaml
+  - fe-deployment.yaml
+  - ingress.yaml
