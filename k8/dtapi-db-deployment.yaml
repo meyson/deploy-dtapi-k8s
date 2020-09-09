@@ -24,6 +24,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
+  storageClassName: db-slow
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -45,7 +46,7 @@ spec:
         tier: mysql
     spec:
       containers:
-      - image: eu.gcr.io/test1-286117/dtapi-mysql:1.0
+      - image: eu.gcr.io/test1-286117/dtapi-mysql:1.1
         name: mysql
         env:
         - name: MYSQL_USER
