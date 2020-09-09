@@ -12,20 +12,6 @@ spec:
     tier: mysql
   clusterIP: None
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-  labels:
-    app: dtapi
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: db-slow
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -78,5 +64,5 @@ spec:
           subPath: data
       volumes:
       - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+        gcePersistentDisk:
+          pdName: dtapi-mysql
