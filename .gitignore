@@ -3,5 +3,5 @@ build
 be_container
 fe_container
 lb_container
-k8/*.txt
+k8s/*.txt
 *.log
