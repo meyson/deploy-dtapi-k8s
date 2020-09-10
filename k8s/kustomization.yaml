@@ -5,7 +5,7 @@ secretGenerator:
 configMapGenerator:
   - name: frontend
     literals:
-      - api-endpoint="http:\/\/ifdevops.ga\/api\/"
+      - api-endpoint="https:\/\/ifdevops.ga\/api\/"
 resources:
   - db-deployment.yaml
   - be-deployment.yaml
