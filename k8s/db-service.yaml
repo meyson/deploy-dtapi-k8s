@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dtapi-mysql
+  labels:
+    app: dtapi
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: dtapi
+    tier: mysql
+  clusterIP: None

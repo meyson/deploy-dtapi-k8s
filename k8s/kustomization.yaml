@@ -7,7 +7,10 @@ configMapGenerator:
     literals:
       - api-endpoint="https:\/\/ifdevops.ga\/api\/"
 resources:
+  - db-service.yaml
   - db-deployment.yaml
+  - be-service.yaml
   - be-deployment.yaml
+  - fe-service.yaml
   - fe-deployment.yaml
   - ingress.yaml
