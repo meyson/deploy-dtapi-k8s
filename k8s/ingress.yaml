@@ -5,9 +5,8 @@ metadata:
   annotations:
     # If the class annotation is not specified it defaults to "gce".
     kubernetes.io/ingress.class: gce
+    # Use reserved static ip
     kubernetes.io/ingress.global-static-ip-name: dtapi
-    # Add managed certificate
-    networking.gke.io/managed-certificates: dtapi-cerf
 spec:
   rules:
   - http:
