@@ -15,6 +15,8 @@ This repository contains code that automatically deploys **D-tester** on GCE.
 1. Fork [FE](https://github.com/meyson/IF-105.UI.dtapi.if.ua.io) [BE](https://github.com/meyson/dtapi) and change GCR URL in `.circleci/config.yml`.
 1. [Set up the project](https://circleci.com/docs/2.0/getting-started/) in Circle CI UI and don't forget [environment variables](https://circleci.com/docs/2.0/env-vars/).
 1. If everything is ready, Circleci CI will be building your images and push it to GCR.
-1. Run `./k8s/init.sh` to deploy resources.
+1. To deploy MySQL image to GCR run `./db_container/deploy.sh`
+1. Run `./k8s/init.sh` to deploy k8s resources.
 
+![Demo 2](dtapi_k8s_diagram.jpg)
 
