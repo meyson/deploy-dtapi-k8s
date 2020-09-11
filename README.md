@@ -7,7 +7,7 @@ This repository contains code that automatically deploys **D-tester** on GCE.
 * [frontend](https://github.com/meyson/IF-105.UI.dtapi.if.ua.io)
 * [backend](https://github.com/meyson/dtapi)
 
-### Initialize CI/CD (or simply deploy application)
+### Initialize CI/CD (or simply deploy the application)
 1. Install Docker, kubectl, and gcloud on your machine.
 1. [Authorize gcloud](https://cloud.google.com/sdk/gcloud/reference/auth/login) and [kubectl](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl) to access the Cloud Platform with Google user credentials.
 1. Install and initialize [Ingress controller for Google Cloud](https://cloud.google.com/config-connector/docs/overview).
